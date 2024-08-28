@@ -1,7 +1,12 @@
-#title-text {
-    text-align: center;
+@import url(https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap);
+
+body {
+    font-family: 'Lexend', sans-serif;
+    background-color: #ADD8E6; /* Light blue background color */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
 
-#loading-bar {
-    height: 30px;
+.timer {
+    text-align: center;
 }

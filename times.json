@@ -1,18 +1,24 @@
 {
+    "_comment": "use _'s as spaces",
+    "_comment": "Monday is day 1, Tuesday is day 2, and so on, with sunday being day 7",
     "normal": {
-        "hr": "7:50:00",
-        "p1": "8:43:00",
-        "p2": "9:36:00",
-        "p3": "10:29:00",
-        "lunch": "11:02:00",
-        "p4": "11:55:00",
-        "p5": "12:38:00",
-        "p6": "13:41:00",
-        "p7": "14:38:00"
+        "times": {
+            "Homeroom": "7:50:00",
+            "Period_1": "8:43:00",
+            "Period_2": "9:36:00",
+            "Period_3": "10:29:00",
+            "Lunch": "11:01:00",
+            "Period_4": "11:55:00",
+            "Period_5": "12:38:00",
+            "Period_6": "13:41:00",
+            "Period_7": "14:38:00"  
+        },
+        "days": [1, 2, 5]
     },
 
     "jaguar": {
-        "Homeroom": "7:50:00",
+        "times": {
+          "Homeroom": "7:50:00",
         "Jaguar_Period": "8:36:00",
         "Period_1": "9:23:00",
         "Period_2": "10:10:00",
@@ -21,6 +27,16 @@
         "Period_4": "12:17:00",
         "Period_5": "13:04:00",
         "Period_6": "13:51:00",
-        "Period_7": "14:38:00"
+        "Period_7": "14:38:00"  
+        },
+        "days": [3, 4]
+    },
+    
+    "weekend": {
+        "times": {
+            "Freedom": "24:00:00"
+        },
+        "days": [6, 7]
     }
 }
+

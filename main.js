@@ -13,7 +13,12 @@ const getJson = async jsonLink => {
     periodTable = refined;
 }
 const toTime = data => {
-    return ([Math.floor(data/3600), Math.floor((data%3600)/60), ((data%3600)%60).toFixed(1)]).join(':')
+    let timeArray = [Math.floor(data/3600), Math.floor((data%3600)/60), ((data%3600)%60).toFixed(1)];
+    let fixedArray = [];
+    for(let i = 0; i < timeArray.length; i++) {
+        fixedArray[i] = timeArray[i] < 10 ? '0' + timeArray[i] : timeArray[i];
+    }
+    return fixedArray.join(':');
 }
 const jsonToSeconds = data => {
     let dataArr = data.split(':');
@@ -24,15 +29,15 @@ const jsonToSeconds = data => {
 }
 const getPeriod = inputTime => {
     const currentDate = new Date();
-    const dayTable = eval("periodTable." + (currentDate.getDay() === '3' || currentDate.getDay() === '4' ? 'normal' : 'jaguar'))
+    const dayTable = eval(("periodTable." + (currentDate.getDay() === 3 || currentDate.getDay() === 4 ? 'jaguar' : 'normal') + ".times"))
     const timesTable = Object.values(dayTable); 
     
     for(let i = 0; i < timesTable.length; i++) {
         if(inputTime < jsonToSeconds(timesTable[i])) {
             return ({
-             time: jsonToSeconds(Object.values(dayTable)[i]),
+             value: jsonToSeconds(Object.values(dayTable)[i]),
              key: Object.keys(dayTable)[i].replace('_'," "),
-             nextKey: Object.keys(dayTable)[i + 1 ? i + 1 : null].replace('_'," ")
+             nextKey: (Object.keys(dayTable)[i + 1] ? Object.keys(dayTable)[i + 1] : Object.keys(dayTable)[0]).replace('_'," ")
             });
         }
     }
@@ -45,12 +50,13 @@ const getPeriod = inputTime => {
         const currentSeconds = toSeconds([
             currentDate.getHours(),
             currentDate.getMinutes(),
-            currentDate.getSeconds(),
+            currentDate.getSeconds() + 0.6,
             Math.round(currentDate.getMilliseconds()/100) //deciseconds or tenths of seconds
         ]);
         const currentPeriod = getPeriod(currentSeconds);
+        const timeDifference = toTime(currentPeriod.value - currentSeconds);
         
-        document.getElementById("time-text").innerHTML = toTime(currentPeriod.time - currentSeconds);
-        document.getElementById("period-text").innerHTML = `Until ${currentPeriod.nextKey}`
+        document.getElementById("time-text").innerHTML = timeDifference;
+        document.getElementById("period-text").innerHTML = `Until ${currentPeriod.nextKey}`;
     },100)
 })();

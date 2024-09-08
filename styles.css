@@ -1,12 +1,13 @@
-@import url(https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap);
-
 body {
-    font-family: 'Lexend', sans-serif;
-    background-color: #ADD8E6; /* Light blue background color */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    text-align: center;
+    font-family: Arial, sans-serif;
 }
 
-.timer {
-    text-align: center;
+#time-text {
+    margin-bottom: 0;
+}
+
+#label-text {
+    margin: 0;
+    color: dimgray;
 }

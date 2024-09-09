@@ -3,6 +3,30 @@ body {
     font-family: Arial, sans-serif;
 }
 
+@keyframes settings-in {
+    from {
+        top: -40px;
+    } to {
+        top: 10px;
+    }
+}
+
+@keyframes time-in-animation {
+    from {
+        
+    } to {
+        
+    }
+}
+
+@keyframes time-out-animation {
+    from {
+        
+    } to {
+        
+    }
+}
+
 #time-text {
     margin-bottom: 0;
 }
@@ -10,4 +34,31 @@ body {
 #label-text {
     margin: 0;
     color: dimgray;
+}
+
+#gear-btn {
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    animation-duration: 800ms;
+    animation-name: settings-in;
+}
+
+#gear-img {
+    height: 40px;
+}
+
+#time-content {
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+#time-content.time-in {
+    animation-name: time-in-animation;
+}
+
+#time-content.time-out {
+    
 }

@@ -7,7 +7,13 @@
     <title>Bell Countdown</title>
 </head>
 <body>
-    <div>
+    <script src='settings.js'></script>
+    <div id='setter-icon'>
+        <button onClick="dropDown()" id='gear-btn'>
+            <img src='gear-icon.png' id='gear-img'/>
+        </button>
+    </div>
+    <div class='time-in' id='time-content'>
         <h1 id="time-text"></h1>
         <p id='label-text'>HH:MM:SS</p>
         <h3 id='period-text'></h3>

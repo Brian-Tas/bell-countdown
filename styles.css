@@ -1,6 +1,7 @@
 body {
     text-align: center;
     font-family: Arial, sans-serif;
+    background-color: #ADD8E6;
 }
 
 @keyframes settings-in {

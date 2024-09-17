@@ -1,6 +1,4 @@
 {
-    "_comment": "use _'s as spaces",
-    "_comment": "Monday is day 1, Tuesday is day 2, and so on, with sunday being day 7",
     "normal": {
         "times": {
             "Homeroom": "7:50:00",
@@ -9,7 +7,7 @@
             "Period_3": "10:29:00",
             "Lunch": "11:01:00",
             "Period_4": "11:55:00",
-            "Period_5": "12:48:00",
+            "Period_5": "12:38:00",
             "Period_6": "13:41:00",
             "Period_7": "14:38:00"  
         },
@@ -30,12 +28,5 @@
         "Period_7": "14:38:00"  
         },
         "days": [3, 4]
-    },
-    
-    "weekend": {
-        "times": {
-            "Freedom": "24:00:00"
-        },
-        "days": [6, 7]
     }
 }

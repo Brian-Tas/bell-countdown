@@ -4,27 +4,21 @@ body {
     background-color: #ADD8E6;
 }
 
-@keyframes settings-in {
+@keyframes from-left {
     from {
-        top: -40px;
+        left: -150%;
     } to {
-        top: 10px;
+        left: 50%;
+        transform: translate(-50%, 0);
     }
 }
 
-@keyframes time-in-animation {
+@keyframes to-right {
     from {
-        
+        left: 50%;
+        transform: translate(-50%, 0);
     } to {
-        
-    }
-}
-
-@keyframes time-out-animation {
-    from {
-        
-    } to {
-        
+        left: 150%;
     }
 }
 
@@ -42,9 +36,7 @@ body {
     border: none;
     position: absolute;
     top: 10px;
-    right: 10px;
-    animation-duration: 800ms;
-    animation-name: settings-in;
+    left: 10px;
 }
 
 #gear-img {
@@ -52,14 +44,18 @@ body {
 }
 
 #time-content {
-    animation-fill-mode: forwards;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
     animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: to-corner;
 }
 
-#time-content.time-in {
-    animation-name: time-in-animation;
-}
-
-#time-content.time-out {
-    
+#settings-content {
+    position: absolute;
+    left: -150%;
+    transform: translate(-50%, 0);
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }

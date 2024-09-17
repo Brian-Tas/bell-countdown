@@ -5,7 +5,7 @@ const toSeconds = time => {
            (time[1] ? time[1] * 60 : 0) + //minutes
            (time[2] ? time[2] : 0) + //seconds
            (time[3] ? time[3]/10 : 0) //milliseconds
-          );
+    );
 }
 const getJson = async jsonLink => {
     const raw = await fetch(jsonLink);
@@ -27,9 +27,27 @@ const jsonToSeconds = data => {
     }
     return toSeconds(dataArr);
 }
+const getDayType = dayNumber => {
+    let localTable = periodTable;
+    let localTableKeys = Object.keys(localTable);
+    let iterDays;
+    let iterLocalObject;
+    for(let h = 0; h < localTableKeys.length; h++) {
+        iterLocalObject = eval(`localTable.${Object.keys(localTable)[h]}`)
+        iterDays = iterLocalObject.days;
+        for(let i = 0; i < iterDays.length; i++) {
+            if(iterDays[i] === dayNumber) {
+                return iterLocalObject.times;
+            }
+        }
+    }
+    return ({
+        Midnight: "24:00:00"
+    })
+}
 const getPeriod = inputTime => {
     const currentDate = new Date();
-    const dayTable = eval(("periodTable." + (currentDate.getDay() === 3 || currentDate.getDay() === 4 ? 'jaguar' : 'normal') + ".times"))
+    const dayTable = getDayType(currentDate.getDay());
     const timesTable = Object.values(dayTable); 
     
     for(let i = 0; i < timesTable.length; i++) {
@@ -41,6 +59,10 @@ const getPeriod = inputTime => {
             });
         }
     }
+    return ({
+        value: 86400,
+        nextKey: "End of Day"
+    })
 }
 (async () => {
     await getJson('./times.json');

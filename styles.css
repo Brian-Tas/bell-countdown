@@ -1,9 +1,26 @@
 body {
     text-align: center;
     font-family: Arial, sans-serif;
-    background-color: #ADD8E6;
-}
+    /* background-color: #ADD8E6; */
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);    
+    animation: gradient 10s ease infinite;
+    background-size: 400% 400%;
+    height:100v
+    }
 
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+        
 @keyframes from-left {
     from {
         left: -150%;
